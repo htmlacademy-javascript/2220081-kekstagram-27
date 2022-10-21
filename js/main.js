@@ -1,15 +1,14 @@
-function getRandom (min , max) {
+function generateRandomIncInt(min , max) {
+  if ((typeof min !== 'number') || (typeof max !== 'number') || (min < 0 ) || (max < 0) || (min > max) || (min === max)) {
+    return NaN;
+  }
+  return Math.floor(min + Math.random() * (max + 1 - min));
+}
 
-    if ((min <0 ) || (max < 0) || (min>max) || (min === max) || (typeof min !== 'number') || (typeof max !== 'number')){
-    return NaN
-    }
-    let rand = min + Math.random() * (max + 1 - min);
-    return Math.floor(rand);
+console.log(generateRandomIncInt('Masdf' , 10));
+
+function validateStrMaxLenght(str, maxLenght) {
+  return str.lenght <= maxLenght;
 }
-    
-    console.log(getRandom ('Masdf' , 10));
-    
-function checkMaxLenght(str, maxlenght){
-    return str.lenght <= maxlenght;
-}
-    console.log (checkMaxLenght('tumbajumba', 10));
+
+console.log(validateStrMaxLenght('tumbajumba', 10));
