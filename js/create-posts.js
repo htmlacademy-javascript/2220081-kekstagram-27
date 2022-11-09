@@ -1,5 +1,4 @@
-import{generateRandomArrayElement} from './generate-random-element.js';
-import{generateRandomIncInt} from './generate-random-int.js';
+import { generateRandomIncInt, getRandomArrayElement } from './util.js';
 import {createComments} from './create-comments.js';
 
 const DESCRIPTION = [
@@ -13,15 +12,17 @@ const DESCRIPTION = [
 ];
 
 const READY_POSTS_COUNT = 25;
+const LIKES_MIN_COUNT = 15;
+const LIKES_MAX_COUNT = 200;
+
 
 const createPost = (_, index) => ({
   id: index + 1,
   url: `photos/${index + 1}.jpg`,
-  description: generateRandomArrayElement(DESCRIPTION),
-  likes: generateRandomIncInt(15 , 200),
+  description: getRandomArrayElement(DESCRIPTION),
+  likes: generateRandomIncInt(LIKES_MIN_COUNT , LIKES_MAX_COUNT),
   comments: createComments (),
 });
+const createPosts = () => Array.from({length: READY_POSTS_COUNT}, createPost);
 
-const postsReady = Array.from({length: READY_POSTS_COUNT}, createPost);
-
-export {postsReady};
+export {createPosts};

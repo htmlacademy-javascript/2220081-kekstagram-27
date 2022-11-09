@@ -1,1 +1,3 @@
-import{postsReady} from './create-posts.js';
+import{createPosts} from './create-posts.js';
+
+console.log(createPosts());
