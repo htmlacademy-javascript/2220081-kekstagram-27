@@ -1,12 +1,4 @@
-import{generateRandomIncInt} from './generate-random-int.js';
-import{generateRandomArrayElement} from './generate-random-element.js';
-
-let commentId = 0;
-const getNextId = function () {
-  const nextId = commentId + generateRandomIncInt(1, 100);
-  commentId = nextId;
-  return nextId;
-};
+import { generateRandomIncInt, getRandomArrayElement, getIntId } from './util.js';
 
 const MESSAGE = [
   'Всё отлично!',
@@ -27,16 +19,21 @@ const NAMES = [
   'Арарат',
   'Пудж'
 ];
+const AVATAR_MIN_ID = 1;
+const AVATAR_MAX_ID = 6;
+const COMMENTS_MIN_COUNT = 1;
+const COMMENTS_MAX_COUNT = 5;
+const generateCommentId = getIntId();
 
 const createComment = () => ({
-  id: getNextId(),
-  avatar: `img src= "img/avatar-${ generateRandomIncInt(1 , 6) }.svg"`,
-  message: generateRandomArrayElement(MESSAGE),
-  name: generateRandomArrayElement(NAMES),
+  id: generateCommentId(),
+  avatar: `img src= "img/avatar-${ generateRandomIncInt(AVATAR_MIN_ID , AVATAR_MAX_ID) }.svg"`,
+  message: getRandomArrayElement(MESSAGE),
+  name: getRandomArrayElement(NAMES),
 });
 
 const createComments = () => {
-  const commentsCount = generateRandomIncInt(1 , 5);
+  const commentsCount = generateRandomIncInt(COMMENTS_MIN_COUNT , COMMENTS_MAX_COUNT);
   return Array.from({length: commentsCount}, createComment);
 };
 
