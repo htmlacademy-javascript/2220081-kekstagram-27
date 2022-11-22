@@ -1,4 +1,4 @@
-import { generateRandomIncInt, getRandomArrayElement, getIntId } from './util.js';
+import { generateRandomIncInt, getRandomArrayElement, getIntId} from './util.js';
 
 const MESSAGES = [
   'Всё отлично!',

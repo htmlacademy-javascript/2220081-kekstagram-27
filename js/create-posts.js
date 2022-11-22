@@ -19,7 +19,7 @@ const LIKES_MAX_COUNT = 200;
 const createPost = (_, index) => ({
   id: index + 1,
   url: `photos/${index + 1}.jpg`,
-  description: getRandomArrayElement(DESCRIPTIONS),
+  description: DESCRIPTIONS[getRandomArrayElement],
   likes: generateRandomIncInt(LIKES_MIN_COUNT
     , LIKES_MAX_COUNT),
   comments: createComments (),

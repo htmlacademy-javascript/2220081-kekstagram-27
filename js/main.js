@@ -1,5 +1,4 @@
 import{createPosts} from './create-posts.js';
-import {renderPosts} from './show-pictures.js';
+import './show-pictures-mini.js';
 
 console.log(createPosts());
-console.log(renderPosts);
