@@ -8,8 +8,8 @@ bigPictureWindow.querySelector('.comments-loader').classList.add('hidden');
 
 const buttonClickHandler = () => closedWindow();
 
-function buttonKeydownHandler () {
-  if (isEscapeKey) {
+function buttonKeydownHandler (evt) {
+  if (isEscapeKey(evt)) {
     closedWindow();
   }
 }
