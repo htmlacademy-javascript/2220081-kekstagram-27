@@ -1,4 +1,5 @@
 import {isEscapeKey, checkForRepeats} from './util.js';
+import {form, addEventListenerImage, removeEventListenerImage, addsFilter, removeFilters} from './editing-image.js';
 
 const MAX_LENGTH_COMMENT = 140;
 const MAX_LENGTH_HASHTAG = 20;
@@ -103,6 +104,8 @@ function openEditingWindow () {
   document.addEventListener('keydown', buttonKeydownHandler);
   hashtagsInputElement.addEventListener('input', validateForm);
   descriptionInputElement.addEventListener('input', validateForm);
+  addEventListenerImage();
+  addsFilter();
 }
 
 function closeEditingWindow () {
@@ -113,7 +116,13 @@ function closeEditingWindow () {
   document.removeEventListener('keydown', buttonKeydownHandler);
   hashtagsInputElement.removeEventListener('input', validateForm);
   descriptionInputElement.removeEventListener('input', validateForm);
+
+  removeEventListenerImage();
+  removeFilters();
+
   hashtagsInputElement.value = '';
   descriptionInputElement.value = '';
   loadImgButtonElement.value = '';
+
 }
+export { form };
