@@ -22,7 +22,7 @@ const NAMES = [
 const AVATAR_MIN_ID = 1;
 const AVATAR_MAX_ID = 6;
 const COMMENTS_MIN_COUNT = 1;
-const COMMENTS_MAX_COUNT = 5;
+const COMMENTS_MAX_COUNT = 20;
 const generateCommentId = getIntId();
 
 const createComment = () => ({
